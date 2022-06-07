@@ -58,7 +58,7 @@ load("parameters\b1_30.mat");        % 输入层和隐层间的权值
 load("parameters\b2_30.mat");        % 隐层和输出层间的权值
 loss = ones(epoches,80);             % 损失函数
 
-% 迭代3000次
+% 迭代500次
 for j = 1:epoches
     % 随机打乱数据集
     r = randperm(80);
@@ -93,9 +93,9 @@ for j = 1:epoches
         %disp(loss)
 
         % 反向传播算法获得参数梯度
-        % 计算输出层神经元的梯度项g
+        % 计算输出层神经元的梯度项 g
         g = a2.*(1-a2).*(a_true-a2);
-        % 计算隐层神经元的梯度项e
+        % 计算隐层神经元的梯度项 e
         e = a1.*(1-a1).*((w2.')*g);
         % 获得各个参数的变化值
         dw2 = dw2 + g * a1.';
@@ -138,6 +138,7 @@ for j = 1:epoches
                 max = a2_test(k);
             end
         end
+        % 找出最大的作为识别结果
         for k = 1:10
             if k == maxi
                 a2_test(k) = 1;

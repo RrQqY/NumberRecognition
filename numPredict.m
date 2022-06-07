@@ -1,6 +1,6 @@
 function num = numPredict(runImgVec,netSize,w1,b1,w2,b2)
-%NUMPREDICT 输入向量经过神经网络预测输出一组结果
-    % 为各参数分配空间
+%NUMPREDICT
+%输入向量经过神经网络预测输出一组结果
     x1_run = zeros(netSize(1),1);          % 隐层输入
     y1_run = zeros(netSize(2),1);           % 隐层直接输出
     a1_run = zeros(netSize(2),1);           % 隐层经过激发函数后输出
